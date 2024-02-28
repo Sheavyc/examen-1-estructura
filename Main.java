@@ -49,7 +49,7 @@ public class Main {
                     
             
             
-        } while (Opcion != 6);
+        } while (Opcion != 5);
         
     }
 }
