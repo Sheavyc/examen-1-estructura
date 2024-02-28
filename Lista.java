@@ -28,31 +28,6 @@ public class Lista {
 
     public void editarPedido(int posicion) {
         Pedido pedido = new Pedido();
-        int op = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el número del dato que desea cambiar: \n"
-                + "1- Nombre \n"
-                + "2-Dirección \n"
-                + "3-Producto \n"
-                + "4- Cantidad \n"));
-        switch (op) {
-            case 1:
-                pedido.setNombre(JOptionPane.showInputDialog(null, "Ingrese el nuevo nombre del pedido:"));
-                break;
-            case 2:
-                pedido.setDireccion(JOptionPane.showInputDialog(null, "Ingrese la nueva dirección del pedido:"));
-                break;
-                case 3:
-                pedido.setProducto(JOptionPane.showInputDialog(null, "Ingrese el producto con el que desea reemplazar el actual:"));
-                break;
-                case 4:
-                pedido.setProducto(JOptionPane.showInputDialog(null, "Ingrese la nueva cantidad de producto:"));
-                break;
-
-            default:
-                break;
-        }
-
-       
-
         if (posicion < 0) {
             System.out.println("Error: La posición debe ser no negativa.");
             return;
@@ -68,10 +43,35 @@ public class Lista {
 
         if (actual == null) {
             System.out.println("Error: La posición está más allá del final de la lista.");
-        } else {
+        } else //revisar
+            {
+            int op = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el número del dato que desea cambiar: \n"
+            + "1- Nombre \n"
+            + "2-Dirección \n"
+            + "3-Producto \n"
+            + "4- Cantidad \n"));
+    switch (op) {
+        case 1:
+            pedido.setNombre(JOptionPane.showInputDialog(null, "Ingrese el nuevo nombre del pedido:"));
+            break;
+        case 2:
+            pedido.setDireccion(JOptionPane.showInputDialog(null, "Ingrese la nueva dirección del pedido:"));
+            break;
+            case 3:
+            pedido.setProducto(JOptionPane.showInputDialog(null, "Ingrese el producto con el que desea reemplazar el actual:"));
+            break;
+            case 4:
+            pedido.setProducto(JOptionPane.showInputDialog(null, "Ingrese la nueva cantidad de producto:"));
+            break;
+    
+        default:
+            break;
+    }   //si se elimina de aqui la logica de preguntar que quiere cambiar, actual.Pedido=pedido queda abriendo el Else
             actual.Pedido = pedido;
             System.out.println("Nodo en la posición " + posicion + " editado correctamente.");
         }
+
+      
     }
 
     public void eliminarPedido(int posicion) {
