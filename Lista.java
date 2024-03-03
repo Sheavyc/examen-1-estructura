@@ -29,7 +29,7 @@ public class Lista {
     public void editarPedido(int posicion) {
         Pedido pedido = new Pedido();
         if (posicion < 0) {
-            System.out.println("Error: La posición debe ser no negativa.");
+            JOptionPane.showMessageDialog(null, "Error: La posición debe ser no negativa.");
             return;
         }
 
@@ -42,47 +42,32 @@ public class Lista {
         }
 
         if (actual == null) {
-            System.out.println("Error: La posición está más allá del final de la lista.");
+            JOptionPane.showMessageDialog(null, "Error: La posición está más allá del final de la lista.");
         } else //revisar
             {
-            int op = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el número del dato que desea cambiar: \n"
-            + "1- Nombre \n"
-            + "2-Dirección \n"
-            + "3-Producto \n"
-            + "4- Cantidad \n"));
-    switch (op) {
-        case 1:
             pedido.setNombre(JOptionPane.showInputDialog(null, "Ingrese el nuevo nombre del pedido:"));
-            break;
-        case 2:
             pedido.setDireccion(JOptionPane.showInputDialog(null, "Ingrese la nueva dirección del pedido:"));
-            break;
-            case 3:
             pedido.setProducto(JOptionPane.showInputDialog(null, "Ingrese el producto con el que desea reemplazar el actual:"));
-            break;
-            case 4:
-            pedido.setProducto(JOptionPane.showInputDialog(null, "Ingrese la nueva cantidad de producto:"));
-            break;
-    
-        default:
-            break;
-    }   //si se elimina de aqui la logica de preguntar que quiere cambiar, actual.Pedido=pedido queda abriendo el Else
-            actual.Pedido = pedido;
-            System.out.println("Nodo en la posición " + posicion + " editado correctamente.");
+            pedido.setCantidad((JOptionPane.showInputDialog(null, "Ingrese la nueva cantidad de producto:")));
+            
+
+       //si se elimina de aqui la logica de preguntar que quiere cambiar, actual.Pedido=pedido queda abriendo el Else
+          }      actual.Pedido = pedido;
+            JOptionPane.showMessageDialog(null, "Pedido en la posición " + posicion + " editado correctamente.");
         }
 
       
-    }
+    
 
     public void eliminarPedido(int posicion) {
         if (posicion < 0) {
-            System.out.println("Error: La posición debe ser no negativa.");
+            JOptionPane.showMessageDialog(null, "Error: La posición debe ser no negativa.");
             return;
         }
 
         if (posicion == 0) {
             Cabeza = Cabeza.Siguiente; // Elimina el primer nodo (cabeza).
-            System.out.println("Pedido en la posición " + posicion + " eliminado correctamente.");
+            JOptionPane.showMessageDialog(null, "Pedido en la posición " + posicion + " eliminado correctamente.");
             return;
         }
 
@@ -95,22 +80,31 @@ public class Lista {
         }
 
         if (actual == null || actual.Siguiente == null) {
-            System.out.println("Error: La posición está más allá del final de la lista.");
+            JOptionPane.showMessageDialog(null, "Error: La posición está más allá del final de la lista.");
+
             return;
         }
 
         actual.Siguiente = actual.Siguiente.Siguiente; // Elimina el nodo en la posición especificada.
-        System.out.println("Pedido en la posición " + posicion + " eliminado correctamente.");
+        JOptionPane.showMessageDialog(null, "Pedido en la posición " + posicion + " eliminado correctamente.");
+
     }
 
     public void mostrarPedido() {
         if (Cabeza == null) {
-            System.out.print("No hay pedidos en esta lista.");
+            JOptionPane.showMessageDialog(null, "No hay pedidos en esta lista.");
+
         } else {
             Nodo temporal = Cabeza;
-            System.out.print("Pedidos encontrados:");
+            JOptionPane.showMessageDialog(null, "Pedidos encontrados:");
+
             while (temporal != null) {
-                System.out.print(temporal.Pedido.getNombre() + " ");
+                JOptionPane.showMessageDialog(null, "Nombre: "+temporal.Pedido.getNombre() + " ");
+                JOptionPane.showMessageDialog(null, "Dirección: "+temporal.Pedido.getDireccion() + " ");
+                JOptionPane.showMessageDialog(null, "Producto: "+temporal.Pedido.getProducto() + " ");
+                JOptionPane.showMessageDialog(null, "Cantidad: "+temporal.Pedido.getCantidad() + " ");
+
+
                 temporal = temporal.Siguiente;
             }
             System.out.println();

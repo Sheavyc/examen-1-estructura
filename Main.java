@@ -11,7 +11,7 @@ public class Main {
                 Opcion = Integer.parseInt(JOptionPane.showInputDialog(null,
                         "Bienvenido a su sistema administrador de pedidos, seleccione un valor para continuar \n"
                                 + "1 - Agregar nuevo pedido\n"
-                                + "2 - Editar pedido \n"
+                                + "2 - Editar todo el pedido \n"
                                 + "3 - Eliminar pedido existente \n"
                                 + "4 - Mostrar pedidos almacenados \n"
                                 + "5 - Salir"));
